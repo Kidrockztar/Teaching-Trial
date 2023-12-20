@@ -19,6 +19,16 @@ public class EndTimer : MonoBehaviour
         {
             timer.StopTimer();
             other.gameObject.transform.position = checkPointManager.startLocation.position;
+
+            var checkPoints = FindObjectsOfType<CheckPoint>();
+
+            checkPointManager.checkPointPriority.Clear();
+            checkPointManager.ResetCheckPoints();
+
+            for(int i = 0; i < checkPoints.Length; i++)
+            {
+                checkPoints[i].ResetColor();
+            }
         }
     }
 }

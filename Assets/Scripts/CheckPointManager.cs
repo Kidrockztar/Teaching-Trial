@@ -17,4 +17,9 @@ public class CheckPointManager : MonoBehaviour
     {
         checkPointPriority.AddFirst(checkPoint);
     }
+
+     public void ResetCheckPoints()
+    {
+        checkPointPriority.AddFirst(startLocation);
+    }
 }

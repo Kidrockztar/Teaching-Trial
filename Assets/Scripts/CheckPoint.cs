@@ -20,4 +20,9 @@ public class CheckPoint : MonoBehaviour
             cube.GetComponent<Renderer>().material.color = Color.green;
         }
     }
+
+    public void ResetColor()
+    {
+        cube.GetComponent<Renderer>().material.color = Color.white;
+    }
 }
