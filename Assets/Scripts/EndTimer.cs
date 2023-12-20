@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPoint : MonoBehaviour
+public class EndTimer : MonoBehaviour
 {
+    private Timer timer;
     private CheckPointManager checkPointManager;
-    public GameObject cube;
     // Start is called before the first frame update
     void Start()
     {
+        timer = FindObjectOfType<Timer>();
         checkPointManager = FindObjectOfType<CheckPointManager>();
     }
 
@@ -16,8 +17,8 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            checkPointManager.AddCheckPoint(transform);
-            cube.GetComponent<Renderer>().material.color = Color.green;
+            timer.StopTimer();
+            other.gameObject.transform.position = checkPointManager.startLocation.position;
         }
     }
 }
